@@ -10,11 +10,11 @@ Registro del proceso de desarrollo, consultas, decisiones de diseño y modificac
 * **Herramienta utilizada:** Gemini  
 * **Objetivo:** Definir cómo presentar mi perfil de manera clara y técnica, diferenciándome de un portfolio genérico y destacando mi orientación hacia la Licenciatura en Ciencias de la Computación en FaMAF (UNC), el desarrollo de juegos en Godot y el modding en Java.  
 * **Prompt completo:**  
-  > *"Actuá como un mentor de desarrollo para un estudiante de 6º año de secundaria técnica que quiere armar su primer portfolio web. Mis áreas de mayor práctica son el desarrollo de videojuegos en Godot Engine (GDScript y C++), modding técnico en Minecraft (Java/NeoForge) y scripts en Linux con Python y Bash. El año que viene voy a cursar Ciencias de la Computación en FaMAF (UNC). Ayudame a estructurar qué secciones debería tener el sitio, qué información poner en la presentación y qué tono usar para que sea profesional pero sincero, sin inflar experiencia."*  
+  > *"Actuá como un mentor de desarrollo para un estudiante de 6º año de secundaria técnica que quiere armar su primer portfolio web. Empecé aprendiendo Python y después C++, luego pasé a GDScript para hacer juegos en Godot y de Java sé lo básico que fui aprendiendo para crear mods en Minecraft (NeoForge). El año que viene voy a cursar Ciencias de la Computación en FaMAF (UNC). Ayudame a estructurar qué secciones debería tener el sitio, qué información poner en la presentación y qué tono usar para que sea profesional pero sincero, sin inflar experiencia."*  
 * **Parte utilizada:**  
   La recomendación de priorizar un encabezado conciso, separar claramente las habilidades por áreas técnicas y estructurar los proyectos en torno a problemas resueltos y aprendizajes reales en lugar de descripciones vacías.  
 * **Cambios realizados por mí:**  
-  Descarté completamente la propuesta inicial de redactar una biografía formal en tercera persona. Reescribí todo en primera persona directa, haciendo hincapié en mi interés por los sistemas operativos ligeros, la lógica pura y el código abierto.  
+  Descarté completamente la propuesta inicial de redactar una biografía formal en tercera persona. Reescribí todo en primera persona directa, haciendo hincapié en mi recorrido real de aprendizaje (Python, C++, GDScript y nociones de Java) y mi interés por la resolución algorítmica de problemas.  
 * **¿Qué comprendí?**  
   Que para un portfolio escolar de nivel secundario/técnico tiene mucho más peso evidenciar curiosidad técnica, lógica de programación y proyectos que se puedan probar o descargar, antes que intentar simular un perfil laboral corporativo ficticio.  
 * **¿Qué descarté y por qué?**  
@@ -66,7 +66,7 @@ Registro del proceso de desarrollo, consultas, decisiones de diseño y modificac
 
 * **Fecha:** 09 de noviembre de 2026  
 * **Herramienta utilizada:** Antigravity / Gemini  
-* **Objetivo:** Desarrollar una identidad visual retro inspirada en monitores arcade y terminales Linux de los años 90, integrando un efecto de líneas de escaneo (scanlines) permanente y una animación sutil de partículas en Canvas reactiva al cursor.  
+* **Objetivo:** Desarrollar una identidad visual retro inspirada en monitores arcade y terminales de programación de los años 90, integrando un efecto de líneas de escaneo (scanlines) permanente y una animación sutil de partículas en Canvas reactiva al cursor.  
 * **Prompt completo:**  
   > *"Quiero darle a mi portfolio una estética retro auténtica. Reemplacé una foto de stock que tenía por una terminal con comandos en texto. ¿Cómo puedo crear una capa fija de monitor CRT con scanlines sutiles usando puro CSS sin imágenes de fondo pesadas? Y para el fondo de la página, pasame un script ligero en JS con Canvas que dibuje partículas que se muevan despacio y sigan levemente el mouse, sin consumir CPU."*  
 * **Parte utilizada:**  
