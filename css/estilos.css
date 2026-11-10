@@ -1,0 +1,798 @@
+/* ==========================================================================
+   PORTFOLIO RETRO / GAME DEV - IAN ALEXIS ACEVEDO
+   Estilo retro auténtico: Monitor CRT permanente, terminal y diseño indie
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. VARIABLES DE COLOR Y ESTILO
+   -------------------------------------------------------------------------- */
+:root {
+  /* Fondos retro oscuros */
+  --bg-principal: #0b0e14;
+  --bg-secundario: #111622;
+  --bg-tarjeta: #161c2b;
+  --bg-tarjeta-hover: #1c2438;
+  
+  /* Bordes */
+  --borde-suave: #262f46;
+  --borde-fuerte: #3b486c;
+
+  /* Colores de acento retro */
+  --cyan: #00f5d4;
+  --cyan-glow: rgba(0, 245, 212, 0.2);
+  --ambar: #ffb703;
+  --ambar-glow: rgba(255, 183, 3, 0.2);
+  --magenta: #e056fd;
+  --verde: #10b981;
+  --rojo: #ef4444;
+
+  /* Textos */
+  --txt-principal: #f0f3fa;
+  --txt-mutado: #96a1bd;
+  --txt-oscuro: #07090e;
+
+  /* Tipografías */
+  --font-titulo: "Chakra Petch", sans-serif;
+  --font-mono: "JetBrains Mono", Consolas, monospace;
+  --font-cuerpo: "Plus Jakarta Sans", sans-serif;
+
+  /* Sombras retro */
+  --sombra-retro-cyan: 4px 4px 0px var(--cyan);
+  --sombra-retro-ambar: 4px 4px 0px var(--ambar);
+  --sombra-retro-solida: 4px 4px 0px #040508;
+  --transicion: 0.18s ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. REINICIO GENERAL Y BASE
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-principal);
+  color: var(--txt-principal);
+  font-family: var(--font-cuerpo);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* --------------------------------------------------------------------------
+   3. MONITOR CRT PERMANENTE (Líneas de escaneo y viñeta arcade fijas)
+   No se puede quitar: es parte integral de la estética del sitio.
+   -------------------------------------------------------------------------- */
+.monitor-crt-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.22) 0px,
+      rgba(0, 0, 0, 0.22) 1px,
+      transparent 1px,
+      transparent 3px
+    ),
+    radial-gradient(
+      circle at center,
+      transparent 65%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+}
+
+/* Canvas interactivo de estrellas en el fondo */
+#canvas-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+}
+
+/* Contenedor utilitario */
+.contenedor {
+  width: 90%;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.contenedor-lectura {
+  max-width: 800px;
+}
+
+/* --------------------------------------------------------------------------
+   4. ENCABEZADO Y NAVEGACIÓN
+   -------------------------------------------------------------------------- */
+.encabezado-retro {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(11, 14, 20, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 2px solid var(--borde-suave);
+  padding: 0.9rem 0;
+}
+
+.encabezado-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-retro {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--cyan);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.prompt-signo {
+  color: var(--ambar);
+  margin-right: 2px;
+}
+
+.cursor {
+  animation: parpadeo 1s infinite steps(1);
+}
+
+@keyframes parpadeo {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.nav-retro ul {
+  display: flex;
+  list-style: none;
+  gap: 1.25rem;
+}
+
+.enlace-nav {
+  color: var(--txt-mutado);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.25rem 0.45rem;
+  border-radius: 3px;
+  transition: all var(--transicion);
+}
+
+.enlace-nav:hover,
+.enlace-nav.activo {
+  color: var(--cyan);
+  background-color: rgba(0, 245, 212, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   5. SECCIÓN INICIO / HERO CON TERMINAL
+   -------------------------------------------------------------------------- */
+.seccion-inicio {
+  padding: 4.5rem 0 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.inicio-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.95fr;
+  align-items: center;
+  gap: 3rem;
+}
+
+.sub-etiqueta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ambar);
+  letter-spacing: 0.5px;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.titulo-nombre {
+  font-family: var(--font-titulo);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--txt-principal);
+  margin-bottom: 0.75rem;
+}
+
+.frase-intro {
+  font-family: var(--font-titulo);
+  font-size: 1.25rem;
+  line-height: 1.45;
+  color: var(--txt-mutado);
+  margin-bottom: 1.25rem;
+}
+
+.txt-cyan { color: var(--cyan); }
+.txt-ambar { color: var(--ambar); }
+.txt-magenta { color: var(--magenta); }
+
+.descripcion-personal {
+  font-size: 1.02rem;
+  color: var(--txt-mutado);
+  margin-bottom: 1.75rem;
+  max-width: 520px;
+}
+
+.botones-inicio {
+  display: flex;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.btn-retro {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all var(--transicion);
+  border: 2px solid transparent;
+}
+
+.btn-cyan {
+  background-color: var(--cyan);
+  color: var(--txt-oscuro);
+  border-color: var(--cyan);
+  box-shadow: var(--sombra-retro-solida);
+}
+
+.btn-cyan:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--sombra-retro-cyan);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--txt-principal);
+  border-color: var(--borde-fuerte);
+}
+
+.btn-outline:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translate(-2px, -2px);
+}
+
+.btn-gh {
+  background-color: var(--bg-secundario);
+  color: var(--ambar);
+  border-color: var(--borde-fuerte);
+}
+
+.btn-gh:hover {
+  border-color: var(--ambar);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--sombra-retro-ambar);
+}
+
+.btn-retro:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px #000;
+}
+
+/* Caja de Terminal del Hero */
+.inicio-terminal-caja {
+  background-color: #06080d;
+  border: 2px solid var(--borde-fuerte);
+  border-radius: 6px;
+  box-shadow: var(--sombra-retro-cyan);
+  overflow: hidden;
+  transition: box-shadow var(--transicion);
+}
+
+.inicio-terminal-caja:hover {
+  box-shadow: 6px 6px 0px var(--cyan);
+}
+
+.terminal-barra-superior {
+  background-color: var(--bg-secundario);
+  border-bottom: 1px solid var(--borde-suave);
+  padding: 0.5rem 0.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.terminal-botones-ventana {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.btn-punto {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.btn-punto.rojo { background-color: var(--rojo); }
+.btn-punto.amarillo { background-color: var(--ambar); }
+.btn-punto.verde { background-color: var(--verde); }
+
+.terminal-pestana {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--txt-mutado);
+  margin-left: auto;
+}
+
+.terminal-cuerpo {
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--txt-mutado);
+}
+
+.term-prompt {
+  color: var(--ambar);
+  font-weight: 700;
+  margin-right: 0.35rem;
+}
+
+.term-salida {
+  color: var(--txt-principal);
+  margin: 0.2rem 0 0.85rem 0.85rem;
+}
+
+.term-bloque-info {
+  margin: 0.35rem 0 0.85rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--txt-principal);
+}
+
+.term-bloque-info span {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.term-ok {
+  color: var(--verde);
+}
+
+/* --------------------------------------------------------------------------
+   6. SECCIONES Y ENCABEZADOS COMUNES
+   -------------------------------------------------------------------------- */
+/* Secciones y scroll suave con compensación del header */
+section[id] {
+  scroll-margin-top: 75px;
+}
+
+.seccion-retro {
+  padding: 4.5rem 0;
+  border-top: 1px solid var(--borde-suave);
+  position: relative;
+  z-index: 1;
+}
+
+.seccion-oscura {
+  background-color: rgba(17, 22, 34, 0.4);
+}
+
+.encabezado-seccion {
+  font-family: var(--font-titulo);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--txt-principal);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.simbolo-seccion {
+  color: var(--cyan);
+}
+
+.bajada-seccion {
+  color: var(--txt-mutado);
+  font-size: 1.02rem;
+  margin-bottom: 2.25rem;
+}
+
+.contenido-sobre-mi p {
+  color: var(--txt-mutado);
+  font-size: 1.05rem;
+  margin-bottom: 1.25rem;
+}
+
+.contenido-sobre-mi strong {
+  color: var(--txt-principal);
+}
+
+/* --------------------------------------------------------------------------
+   7. SECCIÓN PROYECTOS (Tarjetas limpias y auténticas)
+   -------------------------------------------------------------------------- */
+.grilla-proyectos {
+  display: flex;
+  flex-direction: column;
+  gap: 2.75rem;
+}
+
+.tarjeta-proyecto {
+  background-color: var(--bg-tarjeta);
+  border: 2px solid var(--borde-suave);
+  border-radius: 6px;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  overflow: hidden;
+  box-shadow: var(--sombra-retro-solida);
+  transition: transform var(--transicion), border-color var(--transicion), box-shadow var(--transicion);
+}
+
+.tarjeta-proyecto:hover {
+  border-color: var(--cyan);
+  transform: translateY(-3px);
+  box-shadow: var(--sombra-retro-cyan);
+}
+
+.proyecto-media {
+  position: relative;
+  background-color: #04060a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen-proyecto {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.tarjeta-proyecto:hover .imagen-proyecto {
+  transform: scale(1.03);
+}
+
+.etiqueta-categoria {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.55rem;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 2px 2px 0px #000;
+}
+
+.etiqueta-categoria.juego {
+  background-color: var(--magenta);
+  color: #ffffff;
+}
+
+.etiqueta-categoria.mod {
+  background-color: var(--verde);
+  color: #000000;
+}
+
+.etiqueta-categoria.web {
+  background-color: var(--cyan);
+  color: #000000;
+}
+
+.proyecto-contenido {
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.proyecto-titulo-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.proyecto-nombre {
+  font-family: var(--font-titulo);
+  font-size: 1.55rem;
+  color: var(--txt-principal);
+  font-weight: 700;
+}
+
+.proyecto-fecha {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ambar);
+}
+
+.proyecto-bajada {
+  color: var(--txt-mutado);
+  font-size: 0.96rem;
+  margin-bottom: 1.15rem;
+  line-height: 1.5;
+}
+
+.bloques-experiencia {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  background-color: rgba(9, 12, 18, 0.75);
+  border: 1px solid var(--borde-suave);
+  border-radius: 4px;
+  padding: 0.95rem;
+  margin-bottom: 1.15rem;
+}
+
+.bloque-exp {
+  font-size: 0.88rem;
+}
+
+.exp-titulo {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--cyan);
+  display: inline;
+  margin-right: 0.35rem;
+}
+
+.bloque-exp p {
+  display: inline;
+  color: var(--txt-mutado);
+  line-height: 1.45;
+}
+
+.tecnologias-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+.tecnologias-lista span {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--txt-principal);
+  background-color: var(--bg-secundario);
+  border: 1px solid var(--borde-fuerte);
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+
+.proyecto-pie {
+  margin-top: auto;
+}
+
+.link-codigo {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ambar);
+  text-decoration: none;
+  transition: all var(--transicion);
+  display: inline-block;
+}
+
+.link-codigo:hover {
+  color: var(--cyan);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   8. SECCIÓN HABILIDADES
+   -------------------------------------------------------------------------- */
+.grilla-habilidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 1.5rem;
+}
+
+.caja-habilidad {
+  background-color: var(--bg-tarjeta);
+  border: 2px solid var(--borde-suave);
+  border-radius: 5px;
+  padding: 1.5rem;
+  box-shadow: var(--sombra-retro-solida);
+  transition: border-color var(--transicion), transform var(--transicion);
+}
+
+.caja-habilidad:hover {
+  border-color: var(--ambar);
+  transform: translateY(-2px);
+}
+
+.habilidad-subtitulo {
+  font-family: var(--font-titulo);
+  font-size: 1.25rem;
+  color: var(--txt-principal);
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid var(--borde-suave);
+  padding-bottom: 0.4rem;
+}
+
+.items-habilidad {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.items-habilidad li {
+  font-size: 0.9rem;
+  color: var(--txt-mutado);
+  line-height: 1.45;
+}
+
+.items-habilidad strong {
+  color: var(--txt-principal);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. SECCIÓN CONTACTO
+   -------------------------------------------------------------------------- */
+.contenedor-contacto {
+  max-width: 720px;
+}
+
+.filas-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.fila-contacto-item {
+  background-color: var(--bg-tarjeta);
+  border: 2px solid var(--borde-suave);
+  border-radius: 5px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color var(--transicion), transform var(--transicion);
+}
+
+.fila-contacto-item:hover {
+  border-color: var(--cyan);
+  transform: translateX(4px);
+}
+
+.tipo-contacto {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cyan);
+  min-width: 80px;
+}
+
+.valor-contacto {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--txt-principal);
+  text-decoration: none;
+  word-break: break-all;
+  transition: color var(--transicion);
+}
+
+.valor-contacto:hover {
+  color: var(--ambar);
+  text-decoration: underline;
+}
+
+.aviso-privacidad {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--txt-mutado);
+  border-top: 1px dashed var(--borde-suave);
+  padding-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. PIE DE PÁGINA
+   -------------------------------------------------------------------------- */
+.pie-sitio {
+  background-color: #06080d;
+  border-top: 2px solid var(--borde-suave);
+  padding: 1.75rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.pie-fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.88rem;
+  color: var(--txt-mutado);
+}
+
+.link-subir {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--cyan);
+  text-decoration: none;
+  transition: color var(--transicion);
+}
+
+.link-subir:hover {
+  color: var(--ambar);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   11. ADAPTABILIDAD RESPONSIVE (Móviles y Tablets)
+   -------------------------------------------------------------------------- */
+@media (max-width: 880px) {
+  .inicio-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .titulo-nombre {
+    font-size: 2.3rem;
+  }
+
+  .tarjeta-proyecto {
+    grid-template-columns: 1fr;
+  }
+
+  .imagen-proyecto {
+    height: 220px;
+    min-height: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  .encabezado-fila {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .nav-retro ul {
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .seccion-retro {
+    padding: 3.25rem 0;
+  }
+
+  .pie-fila {
+    flex-direction: column;
+    text-align: center;
+  }
+}

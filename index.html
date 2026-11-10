@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Ian Alexis Acevedo. Proyectos de desarrollo en Godot, mods de Minecraft en Java y herramientas web.">
+  <title>Ian Acevedo | Portfolio</title>
+  
+  <!-- Tipografía retro-tech legible -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <!-- Capa permanente de líneas de escaneo y viñeta CRT -->
+  <div class="monitor-crt-overlay" aria-hidden="true"></div>
+
+  <!-- Fondo interactivo de estrellas retro -->
+  <canvas id="canvas-fondo" aria-hidden="true"></canvas>
+
+  <!-- Encabezado / Barra de Navegación -->
+  <header class="encabezado-retro">
+    <div class="contenedor encabezado-fila">
+      
+      <a href="#inicio" class="logo-retro">
+        <span class="prompt-signo">&gt;</span> ian.acevedo<span class="cursor">_</span>
+      </a>
+
+      <nav class="nav-retro" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio" class="enlace-nav">Inicio</a></li>
+          <li><a href="#sobre-mi" class="enlace-nav">Sobre mí</a></li>
+          <li><a href="#proyectos" class="enlace-nav">Proyectos</a></li>
+          <li><a href="#habilidades" class="enlace-nav">Habilidades</a></li>
+          <li><a href="#contacto" class="enlace-nav">Contacto</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Contenido Principal -->
+  <main>
+
+    <!-- Sección Inicio / Presentación -->
+    <section id="inicio" class="seccion-inicio">
+      <div class="contenedor inicio-grid">
+        
+        <div class="inicio-texto">
+          <span class="sub-etiqueta">CÓRDOBA, ARGENTINA &bull; 6º AÑO</span>
+          <h1 class="titulo-nombre">Ian Alexis Acevedo</h1>
+          
+          <p class="frase-intro">
+            Desarrollo de videojuegos en <span class="txt-cyan">Godot</span>, modding de Minecraft en <span class="txt-ambar">Java</span> y futuro estudiante de Ciencias de la Computación en <span class="txt-magenta">FaMAF (UNC)</span>.
+          </p>
+
+          <p class="descripcion-personal">
+            Me metí en la programación buscando entender cómo funcionan los juegos por dentro. 
+            Me gusta la lógica pura, los sistemas ligeros en Linux y encarar proyectos reales donde haya que resolver problemas técnicos concretos.
+          </p>
+
+          <div class="botones-inicio">
+            <a href="#proyectos" class="btn-retro btn-cyan">Ver Proyectos</a>
+            <a href="#contacto" class="btn-retro btn-outline">Contacto</a>
+            <a href="https://github.com/Angrymanaboutcomp" target="_blank" rel="noopener noreferrer" class="btn-retro btn-gh">
+              GitHub &rarr;
+            </a>
+          </div>
+        </div>
+
+        <!-- Terminal interactiva con datos reales en vez de foto falsa -->
+        <div class="inicio-terminal-caja">
+          <div class="terminal-barra-superior">
+            <div class="terminal-botones-ventana">
+              <span class="btn-punto rojo"></span>
+              <span class="btn-punto amarillo"></span>
+              <span class="btn-punto verde"></span>
+            </div>
+            <span class="terminal-pestana">ian@thinkpad:~</span>
+          </div>
+
+          <div class="terminal-cuerpo">
+            <p><span class="term-prompt">$</span> whoami</p>
+            <p class="term-salida">ian_acevedo</p>
+
+            <p><span class="term-prompt">$</span> cat perfil.txt</p>
+            <div class="term-bloque-info">
+              <p><span>Colegio:</span> Instituto San Agustín (6º año)</p>
+              <p><span>Carrera:</span> Lic. en Ciencias de la Computación (FaMAF, UNC)</p>
+              <p><span>Lenguajes:</span> Java, GDScript, C++, Python, JavaScript</p>
+              <p><span>OS favorito:</span> Linux (Arch / Debian sin bloatware)</p>
+              <p><span>Hobbies:</span> Game dev 2D, modding de Minecraft, arcade shooters</p>
+            </div>
+
+            <p><span class="term-prompt">$</span> status</p>
+            <p class="term-salida term-ok">&#x25AA; Disponible para proyectos escolares y código abierto.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sección Sobre mí -->
+    <section id="sobre-mi" class="seccion-retro">
+      <div class="contenedor contenedor-lectura">
+        
+        <h2 class="encabezado-seccion"><span class="simbolo-seccion">&gt;</span> Sobre mí</h2>
+
+        <div class="contenido-sobre-mi">
+          <p>
+            Tengo 18 años, vivo en Córdoba y estoy finalizando la secundaria técnica en el <strong>Instituto San Agustín</strong>. 
+            El próximo año voy a estudiar la <strong>Licenciatura en Ciencias de la Computación</strong> en FaMAF (Universidad Nacional de Córdoba).
+          </p>
+          <p>
+            Empecé a programar de chico queriendo saber cómo estaban hechos los juegos que jugaba con mis amigos. 
+            Esa intriga me llevó a aprender <strong>Java</strong> para desarmar el código interno de Minecraft y crear mods propios, 
+            a experimentar con <strong>Godot Engine</strong> programando mecánicas completas en GDScript y C++, y a usar 
+            <strong>Python y scripts de terminal</strong> para facilitarme tareas cotidianas en la computadora.
+          </p>
+          <p>
+            No me gusta el código inflado ni las herramientas pesadas: prefiero trabajar en entornos limpios en Linux, 
+            entender el rendimiento detrás de cada línea y participar en proyectos en equipo donde se construya algo 
+            que la gente pueda usar y jugar de verdad.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" class="seccion-retro seccion-oscura">
+      <div class="contenedor">
+        
+        <div class="cabecera-proyectos">
+          <h2 class="encabezado-seccion"><span class="simbolo-seccion">&gt;</span> Proyectos</h2>
+          <p class="bajada-seccion">Tres desarrollos reales que programé para la escuela, para ferias de ciencias y como proyectos independientes.</p>
+        </div>
+
+        <div class="grilla-proyectos">
+
+          <!-- PROYECTO 1: Eternauta Dark Winter -->
+          <article class="tarjeta-proyecto">
+            <div class="proyecto-media">
+              <img src="assets/img/proyecto-eternauta.jpg" alt="Ilustración clásica de El Eternauta caminando bajo la nevada mortal" class="imagen-proyecto" loading="lazy">
+              <span class="etiqueta-categoria juego">Feria de Ciencias &bull; Godot 4</span>
+            </div>
+
+            <div class="proyecto-contenido">
+              <div class="proyecto-titulo-fila">
+                <h3 class="proyecto-nombre">Eternauta: Dark Winter</h3>
+                <span class="proyecto-fecha">2026</span>
+              </div>
+
+              <p class="proyecto-bajada">
+                Arcade shooter en 2D de vista lateral ambientado en la clásica nevada mortal de <em>El Eternauta</em> de Oesterheld, 
+                diseñado y programado para jugarse en vivo durante la feria de ciencias del colegio.
+              </p>
+
+              <div class="bloques-experiencia">
+                <div class="bloque-exp">
+                  <span class="exp-titulo">El contexto:</span>
+                  <p>Queríamos escapar de la típica cartulina escolar y hacer que la gente experimentara la tensión de la historieta jugando en el stand a través de 4 niveles con jefes y enemigos.</p>
+                </div>
+
+                <div class="bloque-exp">
+                  <span class="exp-titulo">Qué programé yo:</span>
+                  <p>Me encargué de la arquitectura en Godot con GDScript: la máquina de estados del personaje (movimiento, salto, disparo), el desgaste del traje aislante por exposición a la nieve y la IA de los invasores.</p>
+                </div>
+
+                <div class="bloque-exp">
+                  <span class="exp-titulo">Qué aprendí:</span>
+                  <p>Coordinar el avance con mis compañeros con una fecha de entrega límite estricta, desacoplar nodos para no pisarnos el trabajo y balancear la dificultad para que cualquier visitante pudiera jugarlo.</p>
+                </div>
+              </div>
+
+              <div class="tecnologias-lista">
+                <span>Godot Engine 4</span>
+                <span>GDScript</span>
+                <span>2D Physics</span>
+                <span>Máquinas de Estados (FSM)</span>
+              </div>
+
+              <div class="proyecto-pie">
+                <a href="https://github.com/Angrymanaboutcomp" target="_blank" rel="noopener noreferrer" class="link-codigo">
+                  Código en GitHub &rarr;
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROYECTO 2: Factorinv -->
+          <article class="tarjeta-proyecto">
+            <div class="proyecto-media">
+              <img src="assets/img/proyecto-factorinv.jpg" alt="Mesa de crafteo y cuadrícula de inventario en Minecraft" class="imagen-proyecto" loading="lazy">
+              <span class="etiqueta-categoria mod">Minecraft Mod &bull; Java / NeoForge</span>
+            </div>
+
+            <div class="proyecto-contenido">
+              <div class="proyecto-titulo-fila">
+                <h3 class="proyecto-nombre">Factorinv</h3>
+                <span class="proyecto-fecha">2026</span>
+              </div>
+
+              <p class="proyecto-bajada">
+                Mod para Minecraft que reimplementa el sistema de inventario y crafteo incorporando 
+                la mecánica de fabricación automática en cola y en cascada inspirada en <em>Factorio</em>.
+              </p>
+
+              <div class="bloques-experiencia">
+                <div class="bloque-exp">
+                  <span class="exp-titulo">El contexto:</span>
+                  <p>En partidas con mods técnicos, la mesa tradicional de 3x3 se vuelve monótona y tediosa cuando tenés que fabricar decenas de piezas y componentes intermedios de forma manual.</p>
+                </div>
+
+                <div class="bloque-exp">
+                  <span class="exp-titulo">Qué programé yo:</span>
+                  <p>Desarrollé en Java el algoritmo para recorrer y resolver árboles recursivos de recetas, diseñé la interfaz gráfica personalizada y gestioné los paquetes de red entre cliente y servidor.</p>
+                </div>
+
+                <div class="bloque-exp">
+                  <span class="exp-titulo">Qué aprendí:</span>
+                  <p>Comprender a bajo nivel el ciclo de vida de los inventarios en NeoForge, resolver dependencias circulares sin crasheos y prevenir fallos de duplicación de ítems.</p>
+                </div>
+              </div>
+
+              <div class="tecnologias-lista">
+                <span>Java</span>
+                <span>NeoForge API</span>
+                <span>Gradle</span>
+                <span>Estructuras de Datos</span>
+              </div>
+
+              <div class="proyecto-pie">
+                <a href="https://github.com/Angrymanaboutcomp" target="_blank" rel="noopener noreferrer" class="link-codigo">
+                  Código en GitHub &rarr;
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROYECTO 3: ApunteQR -->
+          <article class="tarjeta-proyecto">
+            <div class="proyecto-media">
+              <img src="assets/img/proyecto-apunteqr.jpg" alt="Pantalla de teléfono celular escaneando un código QR de apuntes escolares" class="imagen-proyecto" loading="lazy">
+              <span class="etiqueta-categoria web">Web App &bull; Proyecto de Aula</span>
+            </div>
+
+            <div class="proyecto-contenido">
+              <div class="proyecto-titulo-fila">
+                <h3 class="proyecto-nombre">ApunteQR</h3>
+                <span class="proyecto-fecha">2026</span>
+              </div>
+
+              <p class="proyecto-bajada">
+                Herramienta web ligera para compartir apuntes escolares y fotos de pizarrones al instante en el aula 
+                mediante un código QR dinámico, sin registros molestos ni grupos de WhatsApp.
+              </p>
+
+              <div class="bloques-experiencia">
+                <div class="bloque-exp">
+                  <span class="exp-titulo">El contexto:</span>
+                  <p>Pasarse resúmenes por chats grupales termina en fotos desordenadas o en tener que compartir números de teléfono privados con gente con la que no tenés confianza.</p>
+                </div>
+
+                <div class="bloque-exp">
+                  <span class="exp-titulo">Qué programé yo:</span>
+                  <p>Diseñé la interfaz móvil con HTML y CSS puro, programé la generación y lectura de códigos QR con JavaScript y optimicé el flujo para que cargue con conexiones escolares deficientes.</p>
+                </div>
+
+                <div class="bloque-exp">
+                  <span class="exp-titulo">Qué aprendí:</span>
+                  <p>Enfocarme en la experiencia real de usuario (UX móvil directa): cero fricción, sin obligar al usuario a crearse una cuenta para simplemente descargar una foto de estudio.</p>
+                </div>
+              </div>
+
+              <div class="tecnologias-lista">
+                <span>JavaScript</span>
+                <span>HTML5 / CSS3</span>
+                <span>QR Code API</span>
+                <span>Mobile UX</span>
+              </div>
+
+              <div class="proyecto-pie">
+                <a href="https://github.com/Angrymanaboutcomp" target="_blank" rel="noopener noreferrer" class="link-codigo">
+                  Código en GitHub &rarr;
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades" class="seccion-retro">
+      <div class="contenedor">
+        
+        <h2 class="encabezado-seccion"><span class="simbolo-seccion">&gt;</span> Habilidades</h2>
+
+        <div class="grilla-habilidades">
+
+          <div class="caja-habilidad">
+            <h3 class="habilidad-subtitulo">Lenguajes</h3>
+            <ul class="items-habilidad">
+              <li><strong>Java</strong> &mdash; Lógica orientada a objetos y modding en NeoForge</li>
+              <li><strong>GDScript &amp; C++</strong> &mdash; Desarrollo de mecánicas y rendimiento en Godot</li>
+              <li><strong>Python</strong> &mdash; Automatización, scripts y procesamiento de datos</li>
+              <li><strong>JavaScript / HTML / CSS</strong> &mdash; Construcción de interfaces web funcionales</li>
+              <li><strong>Lua</strong> &mdash; Scripting ligero para motores y utilidades</li>
+            </ul>
+          </div>
+
+          <div class="caja-habilidad">
+            <h3 class="habilidad-subtitulo">Desarrollo de Juegos</h3>
+            <ul class="items-habilidad">
+              <li><strong>Godot Engine 4</strong> &mdash; Máquinas de estados finitos (FSM) y jerarquía de nodos</li>
+              <li><strong>Física y Controles 2D</strong> &mdash; Movimiento fluido, detección de colisiones y arcade feel</li>
+              <li><strong>Algoritmos de Crafteo</strong> &mdash; Resolución de árboles y colas de producción</li>
+              <li><strong>Balance de Dificultad</strong> &mdash; Ajuste de mecánicas para juegos de stand escolar</li>
+            </ul>
+          </div>
+
+          <div class="caja-habilidad">
+            <h3 class="habilidad-subtitulo">Herramientas &amp; Entorno</h3>
+            <ul class="items-habilidad">
+              <li><strong>Git &amp; GitHub</strong> &mdash; Control de versiones, ramas y repositorios personales</li>
+              <li><strong>Linux &amp; Shell</strong> &mdash; Manejo diario de terminal, Bash y personalización</li>
+              <li><strong>Gradle</strong> &mdash; Configuración de builds y compilación de mods en Java</li>
+              <li><strong>Audacity</strong> &mdash; Grabación y edición básica de efectos sonoros para juegos</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="seccion-retro seccion-oscura">
+      <div class="contenedor contenedor-contacto">
+        
+        <h2 class="encabezado-seccion"><span class="simbolo-seccion">&gt;</span> Contacto</h2>
+        <p class="bajada-seccion">Podés escribirme para charlar sobre proyectos de software, ideas de videojuegos o compartir repositorios de código.</p>
+
+        <div class="filas-contacto">
+          <div class="fila-contacto-item">
+            <span class="tipo-contacto">Correo:</span>
+            <a href="mailto:i.a_acevedo39@gmail.com" class="valor-contacto">i.a_acevedo39@gmail.com</a>
+          </div>
+
+          <div class="fila-contacto-item">
+            <span class="tipo-contacto">GitHub:</span>
+            <a href="https://github.com/Angrymanaboutcomp" target="_blank" rel="noopener noreferrer" class="valor-contacto">github.com/Angrymanaboutcomp</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Pie de Página -->
+  <footer class="pie-sitio">
+    <div class="contenedor pie-fila">
+      <p>&copy; 2026 <strong>Ian Alexis Acevedo</strong> &bull; Aplicaciones Informáticas II (6º E)</p>
+      <a href="#inicio" class="link-subir">&uarr; Volver arriba</a>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
